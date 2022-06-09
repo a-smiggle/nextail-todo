@@ -1,6 +1,6 @@
 {
-  "name": "nextail-template",
-  "version": "0.1.5",
+  "name": "nextail-todo",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
