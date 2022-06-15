@@ -20,6 +20,11 @@ function TodoDetailsPanel() {
   const { selectedTodo, setSelectedTodo, toggleTodo, updateTodo, addTodoStep } =
     useStore();
 
+  function handleDeleteTask() {
+    if (selectedTodo) toggleTodo(selectedTodo?.id, 'deleted');
+    setDeleteModal(false);
+  }
+
   const handleAddStep = async (event: any) => {
     event.preventDefault();
     if (selectedTodo) {
@@ -328,7 +333,25 @@ function TodoDetailsPanel() {
               />
             </svg>
           </Button>
-          <ErrorModal toggle={setDeleteModal} open={deleteModal}></ErrorModal>
+          <ErrorModal
+            mainStylings={{
+              sizing: { width: 'w-1/5' },
+            }}
+            toggle={setDeleteModal}
+            open={deleteModal}
+            header={<h1>Delete Task</h1>}
+            body={<p>Are you sure you want to delete {selectedTodo?.name}?</p>}
+            footer={
+              <div className="flex justify-end gap-2 pt-4">
+                <SuccessOutlineButton onClick={() => setDeleteModal(false)}>
+                  Cancel
+                </SuccessOutlineButton>
+                <ErrorOutlineButton onClick={() => handleDeleteTask()}>
+                  Confirm
+                </ErrorOutlineButton>
+              </div>
+            }
+          ></ErrorModal>
         </div>
       </div>
       <Card>
