@@ -1,6 +1,7 @@
 # Nextail ToDo
 
-Nextail todo is an ToDo list application that uses Nextail. This is currently used for internal training and development.
+Application allows for the tracking of Tasks and management of them into lists.
+Tasks are managed by Zustand store and are stored in localstorage. Clearing browser cache will delete all data.
 
 ## Getting Started
 
