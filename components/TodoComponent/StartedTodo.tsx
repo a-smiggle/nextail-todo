@@ -2,12 +2,12 @@ import { ChildProp } from '@components/types';
 import { Card } from '@nextail/core';
 import React from 'react';
 
-function DeletedTask(props: ChildProp) {
+function StartedTodo(props: ChildProp) {
   return (
     <Card
       mainStylings={{
-        border: { borderWidth: 'border-2', borderColor: 'border-red-500' },
-        background: { backgroundColor: 'bg-red-200 hover:bg-red-300' },
+        border: { borderWidth: 'border-2', borderColor: 'border-yellow-500' },
+        background: { backgroundColor: 'bg-yellow-200 hover:bg-yellow-300' },
         text: { textColor: 'text-black' },
       }}
     >
@@ -16,4 +16,4 @@ function DeletedTask(props: ChildProp) {
   );
 }
 
-export default DeletedTask;
+export default StartedTodo;

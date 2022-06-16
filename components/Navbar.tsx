@@ -16,7 +16,9 @@ function Navbar() {
       data={{
         brand: (
           <div>
-            <div className="text-lg font-bold uppercase text-white">ToDo</div>
+            <div className="text-lg font-bold uppercase text-white">
+              Todo Tracker
+            </div>
             <p className="text-xs">Powered with Nextail</p>
           </div>
         ),

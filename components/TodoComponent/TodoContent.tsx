@@ -1,10 +1,10 @@
-import { TaskProps } from '@components/types';
+import { TodoProps } from '@components/types';
 import { useStore } from '@lib/TodoProvider';
 import React from 'react';
 
 import ToggleButton from '../ToggleButton';
 
-function TaskContent(props: TaskProps) {
+function TodoContent(props: TodoProps) {
   const { setSelectedTodo } = useStore();
   return (
     <div
@@ -31,4 +31,4 @@ function TaskContent(props: TaskProps) {
   );
 }
 
-export default TaskContent;
+export default TodoContent;

@@ -18,7 +18,7 @@ function Heading() {
     clearDeleteTodo,
   } = useStore();
   const [deleteListModal, setDeleteListModal] = useState(false);
-  const [addTaskModal, setAddTaskModal] = useState(false);
+  const [addTodoModal, setAddTodoModal] = useState(false);
   const [clearDeleted, setClearDeleted] = useState(false);
 
   function handleDeleteList() {
@@ -41,7 +41,7 @@ function Heading() {
     };
     event.target.reset();
     addTodo(newTodo);
-    setAddTaskModal(false);
+    setAddTodoModal(false);
   };
 
   const handleClearDeleted = () => {
@@ -63,7 +63,7 @@ function Heading() {
             open={clearDeleted}
             toggle={setClearDeleted}
             header={<h1>Clear Deleted</h1>}
-            body={<p>Are you sure you want to clear all delete tasks?</p>}
+            body={<p>Are you sure you want to clear all delete todos?</p>}
             footer={
               <div className="flex justify-end gap-2 pt-4">
                 <SuccessOutlineButton onClick={() => setClearDeleted(false)}>
@@ -86,13 +86,13 @@ function Heading() {
       return (
         <Fragment>
           <Button
-            onClick={() => setAddTaskModal(true)}
+            onClick={() => setAddTodoModal(true)}
             mainStylings={{
               className:
                 'text-emerald-500 border-2 px-2 border-emerald-500 rounded hover:bg-emerald-500 hover:text-white transition-all',
             }}
           >
-            Add Task
+            Add Todo
           </Button>
           <Modal
             mainStylings={{
@@ -101,10 +101,10 @@ function Heading() {
                 backgroundColor: 'bg-white dark:bg-slate-700',
               },
             }}
-            open={addTaskModal}
-            toggle={setAddTaskModal}
+            open={addTodoModal}
+            toggle={setAddTodoModal}
           >
-            <h2 className="pb-4 font-bold text-emerald-500">Add Task</h2>
+            <h2 className="pb-4 font-bold text-emerald-500">Add Todo</h2>
             <form onSubmit={handleAddTodo}>
               <div className="flex flex-col gap-2">
                 <div>
@@ -151,7 +151,7 @@ function Heading() {
               </div>
 
               <div className="flex justify-end gap-4 pt-4">
-                <ErrorOutlineButton onClick={() => setAddTaskModal(false)}>
+                <ErrorOutlineButton onClick={() => setAddTodoModal(false)}>
                   Cancel
                 </ErrorOutlineButton>
                 <SuccessOutlineButton type="submit">Add</SuccessOutlineButton>

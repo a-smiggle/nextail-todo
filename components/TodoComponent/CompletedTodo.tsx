@@ -2,7 +2,7 @@ import { ChildProp } from '@components/types';
 import { Card } from '@nextail/core';
 import React from 'react';
 
-function CompletedTask(props: ChildProp) {
+function CompletedTodo(props: ChildProp) {
   return (
     <Card
       mainStylings={{
@@ -16,4 +16,4 @@ function CompletedTask(props: ChildProp) {
   );
 }
 
-export default CompletedTask;
+export default CompletedTodo;

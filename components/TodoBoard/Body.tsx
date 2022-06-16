@@ -1,4 +1,4 @@
-import Task from '@components/Task/Task';
+import TodoComponent from '@components/TodoComponent/TodoComponent';
 import { Todo, useStore } from '@lib/TodoProvider';
 import React from 'react';
 
@@ -15,11 +15,11 @@ function Body() {
           )
           .map((todo, index) => {
             if (todo.list === selectedList && todo.status !== 'deleted')
-              return <Task key={index} todo={todo} />;
+              return <TodoComponent key={index} todo={todo} />;
             if (selectedList === 'Deleted' && todo.status === 'deleted')
-              return <Task key={index} todo={todo} />;
+              return <TodoComponent key={index} todo={todo} />;
             if (selectedList === 'Important' && todo.important === true)
-              return <Task key={index} todo={todo} />;
+              return <TodoComponent key={index} todo={todo} />;
             const date = new Date();
             if (
               selectedList === 'Overdue' &&
@@ -27,21 +27,21 @@ function Body() {
               todo.dateDue &&
               new Date(todo.dateDue).getUTCDate() - (date.getUTCDate() - 1) <= 0
             )
-              return <Task key={index} todo={todo} />;
+              return <TodoComponent key={index} todo={todo} />;
             if (
               selectedList === 'Due Today' &&
               todo.status !== 'deleted' &&
               todo.dateDue &&
               new Date(todo.dateDue).getUTCDate() === date.getUTCDate()
             )
-              return <Task key={index} todo={todo} />;
+              return <TodoComponent key={index} todo={todo} />;
             if (
               selectedList === 'Scheduled' &&
               todo.status !== 'deleted' &&
               todo.dateDue &&
               new Date(todo.dateDue).getUTCDate() - date.getUTCDate() >= 1
             )
-              return <Task key={index} todo={todo} />;
+              return <TodoComponent key={index} todo={todo} />;
             return null;
           })}
       </div>

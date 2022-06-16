@@ -5,6 +5,6 @@ export interface ChildProp {
   children: ReactNode;
 }
 
-export interface TaskProps {
+export interface TodoProps {
   todo: Todo;
 }

@@ -1,13 +1,13 @@
-import { TaskProps } from '@components/types';
+import { TodoProps } from '@components/types';
 import React from 'react';
 
-import CompletedTask from './CompletedTask';
-import DefaultTask from './DefaultTask';
-import DeletedTask from './DeletedTask';
-import StartedTask from './StartedTask';
-import TaskContent from './TaskContent';
+import CompletedTodo from './CompletedTodo';
+import DefaultTodo from './DefaultTodo';
+import DeletedTodo from './DeletedTodo';
+import StartedTodo from './StartedTodo';
+import TodoContent from './TodoContent';
 
-function Task(props: TaskProps) {
+function TodoComponent(props: TodoProps) {
   if (props.todo.status === 'created')
     return (
       <div
@@ -15,9 +15,9 @@ function Task(props: TaskProps) {
           props.todo.important ? 'ring-2 ring-yellow-600 ring-offset-2' : ''
         }`}
       >
-        <DefaultTask>
-          <TaskContent todo={props.todo} />
-        </DefaultTask>
+        <DefaultTodo>
+          <TodoContent todo={props.todo} />
+        </DefaultTodo>
       </div>
     );
   if (props.todo.status === 'started')
@@ -27,9 +27,9 @@ function Task(props: TaskProps) {
           props.todo.important ? 'ring-2 ring-yellow-600 ring-offset-2' : ''
         }`}
       >
-        <StartedTask>
-          <TaskContent todo={props.todo} />
-        </StartedTask>
+        <StartedTodo>
+          <TodoContent todo={props.todo} />
+        </StartedTodo>
       </div>
     );
   if (props.todo.status === 'completed')
@@ -39,9 +39,9 @@ function Task(props: TaskProps) {
           props.todo.important ? 'ring-2 ring-yellow-600 ring-offset-2' : ''
         }`}
       >
-        <CompletedTask>
-          <TaskContent todo={props.todo} />
-        </CompletedTask>
+        <CompletedTodo>
+          <TodoContent todo={props.todo} />
+        </CompletedTodo>
       </div>
     );
   if (props.todo.status === 'deleted')
@@ -51,9 +51,9 @@ function Task(props: TaskProps) {
           props.todo.important ? 'ring-2 ring-yellow-600 ring-offset-2' : ''
         }`}
       >
-        <DeletedTask>
-          <TaskContent todo={props.todo} />
-        </DeletedTask>
+        <DeletedTodo>
+          <TodoContent todo={props.todo} />
+        </DeletedTodo>
       </div>
     );
   return (
@@ -62,11 +62,11 @@ function Task(props: TaskProps) {
         props.todo.important ? 'ring-2 ring-yellow-600 ring-offset-2' : ''
       }`}
     >
-      <DefaultTask>
-        <TaskContent todo={props.todo} />
-      </DefaultTask>
+      <DefaultTodo>
+        <TodoContent todo={props.todo} />
+      </DefaultTodo>
     </div>
   );
 }
 
-export default Task;
+export default TodoComponent;

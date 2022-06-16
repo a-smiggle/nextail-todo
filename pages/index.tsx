@@ -1,5 +1,5 @@
 import Navbar from '@components/Navbar';
-import TaskBody from '@components/TaskBoard';
+import TaskBody from '@components/TodoBoard';
 import TodoDetailsPanel from '@components/TodoDetails';
 import TodoListMenu from '@components/TodoLists';
 import { useStore } from '@lib/TodoProvider';
