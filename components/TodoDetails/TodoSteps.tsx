@@ -39,7 +39,7 @@ function TodoSteps(props: CustomProps) {
           )
           .map((steps, index) => (
             <div key={index} className="flex w-full justify-between border p-4">
-              <div className="flex gap-2">
+              <div className="flex gap-2 truncate">
                 <Button
                   title="Complete Step"
                   mainStylings={{ className: ' ' }}

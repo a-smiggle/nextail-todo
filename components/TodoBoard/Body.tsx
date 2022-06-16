@@ -3,10 +3,14 @@ import { Todo, useStore } from '@lib/TodoProvider';
 import React from 'react';
 
 function Body() {
-  const { todos, selectedList } = useStore();
+  const { todos, selectedList, selectedTodo } = useStore();
   return (
-    <div className="h-full w-full rounded border-2 border-emerald-500 p-4">
-      <div className="grid gap-2 md:grid-cols-4">
+    <div className="relative h-full w-full overflow-auto rounded border-2 border-emerald-500 p-4">
+      <div
+        className={`grid gap-2 overflow-auto md:grid-cols-2  ${
+          selectedTodo ? 'lg:grid-cols-2' : 'lg:grid-cols-4'
+        }`}
+      >
         {todos
           .sort(
             (a: Todo, b: Todo) =>
