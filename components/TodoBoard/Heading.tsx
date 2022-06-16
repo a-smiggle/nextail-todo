@@ -60,6 +60,9 @@ function Heading() {
             Clear Deleted
           </ErrorOutlineButton>
           <ErrorModal
+            mainStylings={{
+              sizing: { width: 'lg:w-1/5' },
+            }}
             open={clearDeleted}
             toggle={setClearDeleted}
             header={<h1>Clear Deleted</h1>}
@@ -96,7 +99,7 @@ function Heading() {
           </Button>
           <Modal
             mainStylings={{
-              sizing: { width: 'w-1/5' },
+              sizing: { width: 'lg:w-1/5' },
               background: {
                 backgroundColor: 'bg-white dark:bg-slate-700',
               },
@@ -198,7 +201,7 @@ function Heading() {
         ) : null}
         <ErrorModal
           mainStylings={{
-            sizing: { width: 'w-1/5' },
+            sizing: { width: 'lg:w-1/5' },
           }}
           open={deleteListModal}
           toggle={setDeleteListModal}

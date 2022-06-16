@@ -15,18 +15,19 @@ function TodoContent(props: TodoProps) {
         <ToggleButton todo={props.todo} />
         <h3>{props.todo.name}</h3>
       </div>
-
-      <p className="text-xs">
-        {props.todo.status === 'created' ? 'Not Started' : props.todo.status}
-      </p>
-      <p className="text-xs">
-        Created: {new Date(props.todo.dateCreated).toDateString()}
-      </p>
-      {props.todo.dateDue ? (
-        <p className="text-xs">
-          Due: {new Date(props.todo.dateDue).toDateString()}
+      <div className="text-right">
+        <p className="text-xs capitalize">
+          {props.todo.status === 'created' ? 'Not Started' : props.todo.status}
         </p>
-      ) : null}
+        <p className="text-xs">
+          Created: {new Date(props.todo.dateCreated).toDateString()}
+        </p>
+        {props.todo.dateDue ? (
+          <p className="text-xs">
+            Due: {new Date(props.todo.dateDue).toDateString()}
+          </p>
+        ) : null}
+      </div>
     </div>
   );
 }

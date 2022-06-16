@@ -10,11 +10,7 @@ import TodoContent from './TodoContent';
 function TodoComponent(props: TodoProps) {
   if (props.todo.status === 'created')
     return (
-      <div
-        className={`rounded h-fit ${
-          props.todo.important ? 'ring-2 ring-yellow-600 ring-offset-2' : ''
-        }`}
-      >
+      <div className="h-fit rounded">
         <DefaultTodo>
           <TodoContent todo={props.todo} />
         </DefaultTodo>
@@ -22,11 +18,7 @@ function TodoComponent(props: TodoProps) {
     );
   if (props.todo.status === 'started')
     return (
-      <div
-        className={`rounded h-fit ${
-          props.todo.important ? 'ring-2 ring-yellow-600 ring-offset-2' : ''
-        }`}
-      >
+      <div className="h-fit rounded">
         <StartedTodo>
           <TodoContent todo={props.todo} />
         </StartedTodo>
@@ -34,11 +26,7 @@ function TodoComponent(props: TodoProps) {
     );
   if (props.todo.status === 'completed')
     return (
-      <div
-        className={`rounded h-fit ${
-          props.todo.important ? 'ring-2 ring-yellow-600 ring-offset-2' : ''
-        }`}
-      >
+      <div className="h-fit rounded">
         <CompletedTodo>
           <TodoContent todo={props.todo} />
         </CompletedTodo>
@@ -46,22 +34,14 @@ function TodoComponent(props: TodoProps) {
     );
   if (props.todo.status === 'deleted')
     return (
-      <div
-        className={`rounded h-fit ${
-          props.todo.important ? 'ring-2 ring-yellow-600 ring-offset-2' : ''
-        }`}
-      >
+      <div className="h-fit rounded">
         <DeletedTodo>
           <TodoContent todo={props.todo} />
         </DeletedTodo>
       </div>
     );
   return (
-    <div
-      className={`rounded h-fit ${
-        props.todo.important ? 'ring-2 ring-yellow-600 ring-offset-2' : ''
-      }`}
-    >
+    <div className="h-fit rounded">
       <DefaultTodo>
         <TodoContent todo={props.todo} />
       </DefaultTodo>

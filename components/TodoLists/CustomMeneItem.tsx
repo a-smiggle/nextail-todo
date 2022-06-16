@@ -86,7 +86,7 @@ function CustomMeneItem() {
       </a>
       <Modal
         mainStylings={{
-          sizing: { width: 'w-1/5' },
+          sizing: { width: 'lg:w-1/5' },
           background: { backgroundColor: 'bg-white dark:bg-slate-700' },
         }}
         open={addListModal}
