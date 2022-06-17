@@ -20,12 +20,19 @@ function Heading() {
   const [deleteListModal, setDeleteListModal] = useState(false);
   const [addTodoModal, setAddTodoModal] = useState(false);
   const [clearDeleted, setClearDeleted] = useState(false);
+  const [checkbox, setCheckbox] = useState(false);
 
   function handleDeleteList() {
     setSelectedList('Due Today');
     deleteTodoList(selectedList);
     setDeleteListModal(false);
   }
+
+  const handleCancelAdd = () => {
+    (document?.getElementById('add-todo-form') as HTMLFormElement).reset();
+    setCheckbox(false);
+    setAddTodoModal(false);
+  };
 
   const handleAddTodo = async (event: any) => {
     event.preventDefault();
@@ -37,9 +44,10 @@ function Heading() {
       dateCreated: new Date(),
       dateDue: new Date(event.target.dateDue.value),
       comments: event.target.comments.value,
-      important: event.target.important.checked,
+      important: checkbox,
     };
     event.target.reset();
+    setCheckbox(false);
     addTodo(newTodo);
     setAddTodoModal(false);
   };
@@ -108,7 +116,7 @@ function Heading() {
             toggle={setAddTodoModal}
           >
             <h2 className="pb-4 font-bold text-emerald-500">Add Todo</h2>
-            <form onSubmit={handleAddTodo}>
+            <form id="add-todo-form" onSubmit={handleAddTodo}>
               <div className="flex flex-col gap-2">
                 <div>
                   <label htmlFor="name">Name</label>
@@ -143,21 +151,42 @@ function Heading() {
                     className="w-full rounded border-2 border-emerald-200 px-2 dark:bg-slate-700"
                   />
                 </div>
-                <div>
-                  <label htmlFor="important">Important</label>
-                  <input
-                    type={'checkbox'}
-                    id="important"
-                    name="important"
-                  ></input>
-                </div>
               </div>
 
-              <div className="flex justify-end gap-4 pt-4">
-                <ErrorOutlineButton onClick={() => setAddTodoModal(false)}>
-                  Cancel
-                </ErrorOutlineButton>
-                <SuccessOutlineButton type="submit">Add</SuccessOutlineButton>
+              <div className="flex justify-between pt-4">
+                <Button
+                  title="Toggle Important"
+                  onClick={() => {
+                    setCheckbox(!checkbox);
+                  }}
+                  mainStylings={{ className: ' ' }}
+                >
+                  {checkbox === true ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-8 w-8 fill-yellow-500"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-8 w-8 fill-gray-300 hover:fill-yellow-300"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  )}
+                </Button>
+                <div className="flex justify-between gap-4">
+                  <ErrorOutlineButton onClick={() => handleCancelAdd()}>
+                    Cancel
+                  </ErrorOutlineButton>
+                  <SuccessOutlineButton type="submit">Add</SuccessOutlineButton>
+                </div>
               </div>
             </form>
           </Modal>
